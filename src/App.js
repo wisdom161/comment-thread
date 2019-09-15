@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles/App.css';
 
 import CommentList from './view/component/CommentList';
+import CommentForm from './view/container/CommentForm';
 
 class App extends Component {
 
@@ -12,7 +13,7 @@ class App extends Component {
       comments: [],
       loading: false
     };
-  }
+  };
 
   render() {
 
@@ -37,9 +38,10 @@ class App extends Component {
             comments={comments}
           />
         </div>
+        <CommentForm />
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;

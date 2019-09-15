@@ -10,7 +10,7 @@ const CommentList = ({commentsLength}) => {
         </span>
       </h5>
     </div>
-  )
-}
+  );
+};
 
 export default CommentList;
