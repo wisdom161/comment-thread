@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './styles/App.css';
 
 import CommentList from './view/component/CommentList';
-import ReplyThread from './view/container/ReplyThread';
+import ReplyThreadForm from './view/container/ReplyThreadForm';
 import CommentForm from './view/container/CommentForm';
 
 class App extends Component {
@@ -48,6 +48,7 @@ class App extends Component {
 
     const {
       comments,
+      replies,
       replyThread,
       replyThreadCommentid
     } = this.state;
@@ -65,10 +66,12 @@ class App extends Component {
           commentsLength={comments.length}
           comments={comments}
           replyComment={this.replyComment}
+          replies={replies}
+          replyCommentid={replyThreadCommentid}
           />
 
           {replyThread ? 
-            <ReplyThread
+            <ReplyThreadForm
               addReply={this.addReply} 
               commentid={replyThreadCommentid}
             /> 

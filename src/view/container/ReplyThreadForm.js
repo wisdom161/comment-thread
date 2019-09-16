@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../component/Button';
 
-class ReplyThread extends Component {
+class ReplyThreadForm extends Component {
   constructor(props) {
     super(props)
     console.log('this is comments', this.props.commentid)
@@ -109,4 +109,4 @@ class ReplyThread extends Component {
     };
 };
 
-export default ReplyThread;
+export default ReplyThreadForm;

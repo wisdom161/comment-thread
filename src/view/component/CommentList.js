@@ -4,7 +4,7 @@ import ReplyThreadList from './ReplyThreadList';
 
 import '../../styles/CommentList.css';
 
-const CommentList = ({ comments, replyComment }) => {
+const CommentList = ({ comments, replyComment, replies, replyCommentid }) => {
   return (
     <div className='comment-list-wrapper'>
 
@@ -13,9 +13,12 @@ const CommentList = ({ comments, replyComment }) => {
           key={index}
           comments={comments}
           replyComment={replyComment}
+          replyCommentid={replyCommentid}
         />
       ))}
-        
+        <ReplyThreadList 
+          replies={replies}
+        />
     </div>
   );
 };

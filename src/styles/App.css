@@ -1,6 +1,5 @@
 html, body, section, article, h1, h2, p, ul, button {
   margin: 0;
-  border: 1px dotted red;
   padding: 15px;
 
   font: inherit;
