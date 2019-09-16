@@ -1,27 +1,20 @@
-.Comment-button {
+button {
   display: inline-block;
+  font-size: .4rem;
   color: #fff;
   border-radius: .25rem;
   background-color: #007bff;
   border-color: #007bff;
   padding: .20rem .50rem;
-  font-size: .4rem;
   font-weight: bold;
 }
 
 .reply-button {
   display: block;
   font-size: .3rem;
-  padding: 0px;
-}
-
-.Reply-button {
-  display: inline-block;
   color: #fff;
   border-radius: .25rem;
   background-color: #007bff;
   border-color: #007bff;
-  padding: .20rem .50rem;
-  font-size: .4rem;
-  font-weight: bold;
+  padding: .1rem .2rem;
 }
