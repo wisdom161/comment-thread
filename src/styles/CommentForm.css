@@ -1,0 +1,11 @@
+input {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}
+
+textarea {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}

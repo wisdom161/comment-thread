@@ -13,7 +13,16 @@ class App extends Component {
       comments: [],
       loading: false
     };
+
+    this.addComment = this.addComment.bind(this);
   };
+
+  addComment(comment) {
+    this.setState({
+      loading: false,
+      comments: [...this.state.comments, comment]
+    })
+  }
 
   render() {
 
@@ -29,16 +38,18 @@ class App extends Component {
           </h1>
         </header>
 
-        <div className='comment-form'>
-          <h6>Say something!</h6>
-        </div>
         <div className='comment-list'>
           <CommentList
-            commentsLength={comments.length}
-            comments={comments}
+          commentsLength={comments.length}
+          comments={comments}
           />
         </div>
-        <CommentForm />
+          <div className='comment-form'>
+            <h6>Say something!</h6>
+            <CommentForm
+              addComment={this.addComment}
+            />
+        </div>
       </div>
     );
   };

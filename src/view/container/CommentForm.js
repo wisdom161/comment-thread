@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../component/Button';
+import '../../styles/CommentForm.css';
 
 class CommentForm extends Component {
   constructor(props) {
@@ -9,8 +10,9 @@ class CommentForm extends Component {
       error: '',
       comment: {
         name: '',
-        message: ''
-        }
+        message: '',
+        commentId: 0
+      }
     };
 
     this.handleFieldChange = this.handleFieldChange.bind(this);
@@ -19,18 +21,54 @@ class CommentForm extends Component {
 
   handleFieldChange(e) {
     const { value, name } = e.target;
-
     this.setState({
       ...this.state,
       comment: {
         ...this.state.comment,
-        [name]: value
+        [name]: value,
       }
     });
   };
 
+  
   onSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+
+    if(!this.isFormValid()) {
+      this.setState({ error: "Please fill out all fields!" });
+      return;
+    }
+    const { comment } = this.state;
+    this.setState({
+        ...this.state,
+        error: '',
+        loading: true,
+        commentId: comment.commentId+=1
+      })
+
+    this.props.addComment(comment);
+    
+    //clears text area
+    this.setState({
+      loading: false,
+      comment: { ...comment, message: "" }
+    });
+
+  } 
+
+  isFormValid() {
+    const {
+      comment: { name, message }
+    } = this.state;
+
+    return name !== '' && message !== '';
+  }
+
+  formError() {
+    const { error } = this.state;
+    return error ? (
+      <div className='form-error'>{error}</div>
+    ) : null;
   }
   
   render() {
@@ -40,13 +78,12 @@ class CommentForm extends Component {
 
     return(
       <React.Fragment>
-        <form method='POST' onSubmit={this.onSubmit}>
+        <form name='form' onSubmit={this.onSubmit}>
 
           <div className='form'>
             <input
               onChange={this.handleFieldChange}
               value={name}
-              className='form-handler'
               placeholder='Your Name'
               name='name'
               type='text'
@@ -57,20 +94,24 @@ class CommentForm extends Component {
             <textarea
               onChange={this.handleFieldChange}
               value={message}
-              className='form-handler'
               placeholder='Your comment'
               name='message'
               rows='5'
             />
           </div>
 
+          {this.formError()}
+
           <div className='form'>
-            <Button />
+            <Button>
+              Comment
+            </Button>
           </div>
 
         </form>
       </React.Fragment>
-    )
-  }
+    );
+  };
 };
+
 export default CommentForm;

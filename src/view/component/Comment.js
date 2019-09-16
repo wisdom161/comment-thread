@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Comment = ({time, name, message}) => {
-
+const Comment = ({ comments }) => {
+  console.log('inside comment', comments)
   return (
     <div className='comment'>
-      <small className='time'>{time}</small>
-      <h6 className='comment-name'>{name}</h6>
-      {message}
+      <small className='time'></small>
+      <h6 className='comment-name'>{comments.name}</h6>
+        {comments.message}
     </div>
   );
 };

@@ -1,12 +1,13 @@
 import React from 'react';
+import '../../styles/Button.css';
 
-const Button = ({loading}) => {
+const Button = ({children, loading}) => {
   return (
     <button 
       disabled={loading} 
-      className='button'
+      className={ `${children}-button` }
     >
-      Comment  
+      {children}  
     </button>
   );
 };
