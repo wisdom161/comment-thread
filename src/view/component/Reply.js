@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/Reply.css';
 
 const Reply = ({ message, name }) => {
   // console.log('this is name',name)

@@ -20,13 +20,14 @@ class App extends Component {
     this.replyComment = this.replyComment.bind(this);
   };
 
+  // function to add comment created in comment form to the comments array in App state
   addComment(comment) {
     this.setState({
       comments: [...this.state.comments, comment]
     });
   };
 
-  // function to add reply to replies array in comments array
+  // function to add reply to replies array in comments array in App state
   addReply(reply, commentId) {
     const comments = [...this.state.comments];
 

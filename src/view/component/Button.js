@@ -9,7 +9,6 @@ const Button = ({children, commentid, handleClick = () => {}}) => {
   return (
     <button 
       className={ `${children}-button` }
-      // value={commentid}
       onClick={(e) => handleClick(e, commentid)}
     >
       {children}  
