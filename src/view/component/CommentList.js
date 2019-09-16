@@ -1,11 +1,13 @@
 import React from 'react';
 import Comment from './Comment';
+import ReplyThreadList from './ReplyThreadList';
+
 import '../../styles/CommentList.css';
 
-const CommentList = ({ comments, commentsLength, replyComment }) => {
-  // console.log('comment list', comments)
+const CommentList = ({ comments, replyComment }) => {
   return (
-    <div className='comment-list-component'>
+    <div className='comment-list-wrapper'>
+
       {comments.map((comments, index) => (
         <Comment 
           key={index}
@@ -13,9 +15,9 @@ const CommentList = ({ comments, commentsLength, replyComment }) => {
           replyComment={replyComment}
         />
       ))}
-
+        
     </div>
   );
 };
-
+ // map out the comment replies
 export default CommentList;

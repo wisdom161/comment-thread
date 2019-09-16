@@ -4,23 +4,22 @@ import Button from '../component/Button';
 class ReplyThread extends Component {
   constructor(props) {
     super(props)
-    console.log('this is comments', this.props.comments)
+    console.log('this is comments', this.props.commentid)
     this.state = {
-      commentsInThread: this.props.comments,
-      loading: false,
       error: '',
       replies: [],
       reply: {
         name: '',
         message: '',
+        replyId: this.props.commentid
       }
     };
 
-    this.handleThreadFieldChange = this.handleThreadFieldChange.bind(this);
+    this.handleReplyFieldChange = this.handleReplyFieldChange.bind(this);
     this.onThreadSubmit = this.onThreadSubmit.bind(this);
   };
 
-  handleThreadFieldChange(e) {
+  handleReplyFieldChange(e) {
     const { value, name } = e.target;
     this.setState({
       ...this.state,
@@ -28,13 +27,6 @@ class ReplyThread extends Component {
         ...this.state.reply,
         [name]: value,
       }
-    });
-  };
-
-  addReply (comment) {
-    this.setState({
-      loading: false,
-      replies: [...this.state.replies, comment]
     });
   };
 
@@ -46,18 +38,13 @@ class ReplyThread extends Component {
       return;
     };
     const { reply } = this.state;
-    this.setState({
-        ...this.state,
-        error: '',
-        loading: true,
-      })
-      this.addReply(reply);
+
+    this.props.addReply(reply);
     
       //clears text area
-      this.setState({
-        loading: false,
-        reply: { ...reply, message: "" }
-      });
+    this.setState({
+      reply: { ...reply, message: "" }
+    });
   
     };
 
@@ -90,7 +77,7 @@ class ReplyThread extends Component {
 
           <div className='replyThread'>
             <input
-              onChange={this.handleThreadFieldChange}
+              onChange={this.handleReplyFieldChange}
               value={name}
               placeholder='Your Name'
               name='name'
@@ -100,7 +87,7 @@ class ReplyThread extends Component {
           
           <div className='replyThread'>
             <textarea
-              onChange={this.handleThreadFieldChange}
+              onChange={this.handleReplyFieldChange}
               value={message}
               placeholder='Your reply'
               name='message'

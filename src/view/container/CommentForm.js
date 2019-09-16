@@ -6,12 +6,11 @@ class CommentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
       error: '',
       comment: {
         name: '',
         message: '',
-        commentId: 0
+        commentId: 0,
       }
     };
 
@@ -41,7 +40,6 @@ class CommentForm extends Component {
     this.setState({
         ...this.state,
         error: '',
-        loading: true,
         commentId: comment.commentId+=1
       })
 
@@ -49,7 +47,6 @@ class CommentForm extends Component {
     
     //clears text area
     this.setState({
-      loading: false,
       comment: { ...comment, message: "" }
     });
 
