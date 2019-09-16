@@ -14,7 +14,7 @@ class App extends Component {
       comments: [],
       replies: [],
       replyThread: false,
-      replyThreadCommentid: null,
+      replyParentCommentid: null,
     };
 
     this.addComment = this.addComment.bind(this);
@@ -40,7 +40,7 @@ class App extends Component {
 
     this.setState({
       replyThread: !this.state.replyThread,
-      replyThreadCommentid: Number(commentId)
+      replyParentCommentid: Number(commentId)
     });
   };
 
@@ -50,7 +50,7 @@ class App extends Component {
       comments,
       replies,
       replyThread,
-      replyThreadCommentid
+      replyParentCommentid
     } = this.state;
 
     return (
@@ -67,13 +67,13 @@ class App extends Component {
           comments={comments}
           replyComment={this.replyComment}
           replies={replies}
-          replyCommentid={replyThreadCommentid}
+          replyParentCommentid={replyParentCommentid}
           />
 
           {replyThread ? 
             <ReplyThreadForm
               addReply={this.addReply} 
-              commentid={replyThreadCommentid}
+              commentid={replyParentCommentid}
             /> 
               : null
           }

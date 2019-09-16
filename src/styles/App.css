@@ -3,6 +3,7 @@ html, body, section, article, h1, h2, p, ul, button {
   padding: 15px;
 
   font: inherit;
+  font-size: 25px;
   text-align: inherit;
   text-decoration: inherit;
   color: inherit;

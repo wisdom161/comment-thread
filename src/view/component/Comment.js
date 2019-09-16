@@ -1,15 +1,15 @@
 import React from 'react';
 import Button from './Button';
 
-const Comment = ({ comments, replyComment }) => {
+const Comment = ({ comment, replyComment }) => {
   return (
-    <div className='comment' commentid={comments.commentId}>
+    <div className='comment' commentid={comment.commentId}>
       
-      <h6 className='comment-name'>{comments.name}</h6>
-        {comments.message}
+      <h6 className='comment-name'>{comment.name}</h6>
+        {comment.message}
         
         <Button 
-          commentid={comments.commentId}
+          commentid={comment.commentId}
           replyComment={replyComment}
         >
           reply

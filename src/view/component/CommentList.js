@@ -4,20 +4,21 @@ import ReplyThreadList from './ReplyThreadList';
 
 import '../../styles/CommentList.css';
 
-const CommentList = ({ comments, replyComment, replies, replyCommentid }) => {
+const CommentList = ({ comments, replyComment, replies, replyParentCommentid }) => {
   return (
     <div className='comment-list-wrapper'>
 
-      {comments.map((comments, index) => (
+      {comments.map((comment, index) => (
         <Comment 
-          key={index}
-          comments={comments}
+          key={comment+index}
+          comment={comment}
           replyComment={replyComment}
-          replyCommentid={replyCommentid}
+          replyParentCommentid={replyParentCommentid}
         />
       ))}
         <ReplyThreadList 
           replies={replies}
+          replyParentCommentid={replyParentCommentid}
         />
 
     </div>
