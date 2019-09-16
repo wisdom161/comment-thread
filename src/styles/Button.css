@@ -6,3 +6,18 @@
   border-color: #007bff;
   padding: .375rem .75rem;
 }
+
+.reply-button {
+  display: block;
+  font-size: 10px;
+  padding: 0px;
+}
+
+.Reply-button {
+  display: inline-block;
+  color: #fff;
+  border-radius: .25rem;
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: .375rem .75rem;
+}

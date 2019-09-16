@@ -21,14 +21,40 @@ h1 {
 }
 
 h6 {
-    margin-bottom: .5rem;
-    line-height: 1.2;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  line-height: 1.2;
 }
 
 .app-header {
-    background-color: #999999;
-    padding: 20px;
-    color: #fff;
-    border-radius: .3rem;
-    font-size: 2rem;
+  background-color: #999999;
+  padding: 20px;
+  color: #fff;
+  border-radius: .3rem;
+  font-size: 2rem;
+}
+
+.comment-form-header {
+  display: flex;
+  align-items: center;
+}
+
+.comment-list-title {
+  margin-left: 10px;
+}
+
+.comment-list-counter {
+  padding: 0 0 0 10px;
+  border-top: 10px;
+}
+
+.badge {
+  color: #fff;
+  background-color: #28a745;
+  display: inline-block;
+  padding: .25em .4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: .25rem;
 }

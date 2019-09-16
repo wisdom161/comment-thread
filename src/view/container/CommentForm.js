@@ -30,14 +30,13 @@ class CommentForm extends Component {
     });
   };
 
-  
   onSubmit(e) {
     e.preventDefault();
 
     if(!this.isFormValid()) {
       this.setState({ error: "Please fill out all fields!" });
       return;
-    }
+    };
     const { comment } = this.state;
     this.setState({
         ...this.state,
@@ -54,7 +53,7 @@ class CommentForm extends Component {
       comment: { ...comment, message: "" }
     });
 
-  } 
+  };
 
   isFormValid() {
     const {
@@ -62,14 +61,14 @@ class CommentForm extends Component {
     } = this.state;
 
     return name !== '' && message !== '';
-  }
+  };
 
   formError() {
     const { error } = this.state;
     return error ? (
       <div className='form-error'>{error}</div>
     ) : null;
-  }
+  };
   
   render() {
     const { 
@@ -78,7 +77,10 @@ class CommentForm extends Component {
 
     return(
       <React.Fragment>
-        <form name='form' onSubmit={this.onSubmit}>
+        <form 
+          name='form' 
+          onSubmit={this.onSubmit}
+        >
 
           <div className='form'>
             <input
