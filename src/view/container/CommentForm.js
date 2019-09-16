@@ -21,7 +21,6 @@ class CommentForm extends Component {
   handleFieldChange(e) {
     const { value, name } = e.target;
     this.setState({
-      ...this.state,
       comment: {
         ...this.state.comment,
         [name]: value,
@@ -36,9 +35,10 @@ class CommentForm extends Component {
       this.setState({ error: "Please fill out all fields!" });
       return;
     };
+
     const { comment } = this.state;
+
     this.setState({
-        ...this.state,
         error: '',
         commentId: comment.commentId+=1
       })
@@ -47,14 +47,20 @@ class CommentForm extends Component {
     
     //clears text area
     this.setState({
-      comment: { ...comment, message: "" }
+      comment: { 
+        ...comment, 
+        message: "" 
+      }
     });
 
   };
 
   isFormValid() {
     const {
-      comment: { name, message }
+      comment: { 
+        name, 
+        message 
+      }
     } = this.state;
 
     return name !== '' && message !== '';
@@ -69,7 +75,10 @@ class CommentForm extends Component {
   
   render() {
     const { 
-      comment: { name, message },
+      comment: { 
+        name, 
+        message 
+      },
     } = this.state;
 
     return(

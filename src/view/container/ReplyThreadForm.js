@@ -11,7 +11,7 @@ class ReplyThreadForm extends Component {
       reply: {
         name: '',
         message: '',
-        replyId: this.props.commentid
+        parentCommentId: this.props.commentid
       }
     };
 
@@ -22,7 +22,6 @@ class ReplyThreadForm extends Component {
   handleReplyFieldChange(e) {
     const { value, name } = e.target;
     this.setState({
-      ...this.state,
       reply: {
         ...this.state.reply,
         [name]: value,
@@ -37,20 +36,27 @@ class ReplyThreadForm extends Component {
       this.setState({ error: "Please fill out all fields!" });
       return;
     };
+    
     const { reply } = this.state;
 
     this.props.addReply(reply);
     
       //clears text area
     this.setState({
-      reply: { ...reply, message: "" }
+      reply: { 
+        ...reply, 
+        message: ""
+      }
     });
   
     };
 
     isFormValid() {
       const {
-        reply: { name, message }
+        reply: { 
+          name, 
+          message 
+        }
       } = this.state;
   
       return name !== '' && message !== '';
@@ -65,7 +71,10 @@ class ReplyThreadForm extends Component {
 
     render() {
       const { 
-        reply: { name, message },
+        reply: { 
+          name, 
+          message 
+        },
       } = this.state;
 
       return (

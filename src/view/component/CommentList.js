@@ -19,6 +19,7 @@ const CommentList = ({ comments, replyComment, replies, replyCommentid }) => {
         <ReplyThreadList 
           replies={replies}
         />
+
     </div>
   );
 };
