@@ -10,7 +10,7 @@ const Comment = ({ comment, replyComment }) => {
         
         <Button 
           commentid={comment.commentId}
-          replyComment={replyComment}
+          handleClick={replyComment}
         >
           reply
         </Button>

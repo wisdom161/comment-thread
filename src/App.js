@@ -6,13 +6,11 @@ import ReplyThreadForm from './view/container/ReplyThreadForm';
 import CommentForm from './view/container/CommentForm';
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     
     this.state = {
       comments: [],
-      replies: [],
       replyThread: false,
       replyParentCommentid: null,
     };
@@ -28,19 +26,30 @@ class App extends Component {
     });
   };
 
-  addReply(reply) {
+  // function to add reply to replies array in comments array
+  addReply(reply, commentId) {
+    const comments = [...this.state.comments];
+
+    comments.reduce((comments, comment) => {
+      if (comment.commentId === commentId) {
+        comment.replies.push(reply)
+      }
+      comments.push(comment)
+      return comments
+    }, [])
+
     this.setState({
-      replies: [...this.state.replies, reply]
+      comments
     });
   };
 
-  replyComment(e) {
+    // activates reply form for replies to be submitted
+  replyComment(e, commentId) {
     e.preventDefault();
-    const commentId = e.target.value;
-
+    console.log(commentId)
     this.setState({
       replyThread: !this.state.replyThread,
-      replyParentCommentid: Number(commentId)
+      replyParentCommentid: commentId
     });
   };
 
@@ -48,7 +57,6 @@ class App extends Component {
 
     const {
       comments,
-      replies,
       replyThread,
       replyParentCommentid
     } = this.state;
@@ -63,11 +71,10 @@ class App extends Component {
         </header>
 
           <CommentList
-          commentsLength={comments.length}
-          comments={comments}
-          replyComment={this.replyComment}
-          replies={replies}
-          replyParentCommentid={replyParentCommentid}
+            commentsLength={comments.length}
+            comments={comments}
+            replyComment={this.replyComment}
+            replyParentCommentid={replyParentCommentid}
           />
 
           {replyThread ? 

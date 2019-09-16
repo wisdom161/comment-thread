@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../component/Button';
+import CommentButton from '../component/CommentButton';
 import '../../styles/CommentForm.css';
 
 class CommentForm extends Component {
@@ -11,6 +11,7 @@ class CommentForm extends Component {
         name: '',
         message: '',
         commentId: 0,
+        replies: []
       }
     };
 
@@ -82,7 +83,7 @@ class CommentForm extends Component {
     } = this.state;
 
     return(
-      <React.Fragment>
+      <>
         <form 
           name='form' 
           onSubmit={this.onSubmit}
@@ -111,13 +112,13 @@ class CommentForm extends Component {
           {this.formError()}
 
           <div className='form'>
-            <Button>
+            <CommentButton>
               Comment
-            </Button>
+            </CommentButton>
           </div>
 
         </form>
-      </React.Fragment>
+      </>
     );
   };
 };

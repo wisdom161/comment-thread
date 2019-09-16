@@ -4,10 +4,9 @@ import Button from '../component/Button';
 class ReplyThreadForm extends Component {
   constructor(props) {
     super(props)
-    console.log('this is comments', this.props.commentid)
+    // console.log('this is comments', this.props.commentid)
     this.state = {
       error: '',
-      replies: [],
       reply: {
         name: '',
         message: '',
@@ -38,8 +37,8 @@ class ReplyThreadForm extends Component {
     };
     
     const { reply } = this.state;
-
-    this.props.addReply(reply);
+    const commentId = this.state.reply.parentCommentId;
+    this.props.addReply(reply, commentId);
     
       //clears text area
     this.setState({
